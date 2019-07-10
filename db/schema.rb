@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_10_074252) do
   create_table "building_locations", force: :cascade do |t|
     t.string "city"
     t.string "street"
-    t.string "zipcode"
+    t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

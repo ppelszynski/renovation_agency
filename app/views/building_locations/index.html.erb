@@ -1,0 +1,21 @@
+<table class = "table">
+  <tr>
+    <th>City</th>
+    <th>Street</th> 
+    <th>Zip code</th> 
+  </tr>
+  <% @locations.each do |location| %>
+    <tr>
+      <td><%= location.city %></td>
+      <td><%= location.street %></td>
+      <td><%= location.zip_code %></td>
+      <td><%= link_to 'Edit', edit_building_location_path(location) %></td>
+      <td><%= link_to 'Delete', building_location_path(location), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="btn btn-outline-dark">
+   <%=link_to 'Add location', new_building_location_path, class: 'btn'%>
+</div>
+

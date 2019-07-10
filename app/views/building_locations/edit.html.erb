@@ -1,0 +1,5 @@
+<h2>Edit location</h2>
+
+<%= simple_form_for(@form, url: building_location_path) do |f| %>
+  <%= render 'form', f: f, action: 'Update' %>
+<% end %>
