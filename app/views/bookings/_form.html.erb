@@ -1,0 +1,7 @@
+
+<%= f.input :company_id, collection: Company.all, autofocus: true %>
+<%= f.input :building_location_id, collection: BuildingLocation.all %>
+<%= f.input :date_from, as: :date %>
+<%= f.input :date_to, as: :date %>
+
+<%= f.submit "#{action} location", class: "btn btn-outline-dark" %>

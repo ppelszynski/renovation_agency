@@ -5,9 +5,9 @@ class BuildingLocationForm < Patterns::Form
   attribute :street, String
   attribute :zip_code, String
 
-  attr_reader :resource
-
   private
+
+  attr_reader :resource
 
   def persist
     resource.update_attributes(attributes)

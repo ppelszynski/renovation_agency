@@ -1,5 +1,5 @@
 class BuildingLocationsController < ApplicationController
-  before_action :set_form
+  before_action :set_form, only: [:new, :edit, :create, :update, :destroy]
 
   def new; end
 
