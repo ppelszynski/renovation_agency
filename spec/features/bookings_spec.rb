@@ -2,22 +2,42 @@ require 'rails_helper'
 
 feature 'bookings' do
   context 'user' do
-    scenario 'can create booking' do
-      visit root_path
+    context 'with valid date'
+      scenario 'can create booking' do
+        create(:company, name: 'Example Company')
+        create(:building_location, city: 'Example City', street: 'Example Street', zip_code: '43-300')
 
-      click_on 'Bookings'
-      click_on 'Add booking'
+        visit root_path
 
-      select 'Example City, Example Street, 43-300', from: 'booking[building_location]'
-      select 'Example Company', from: 'booking[company]'
+        click_on 'Bookings'
+        click_on 'Add booking'
 
-      fill_in 'Start date', with: Datetime.now
-      fill_in 'Deadline', with: (Datetime.now + 5.days)
+        select 'Example Company', from: 'booking[company_id]'
+        select 'Example City, Example Street, 43-300', from: 'booking[building_location_id]'
 
-      click_button 'Create booking'
+        click_button 'Create booking'
 
-      expect(page).to have_table_row('New City, New Street 1, 43-300')
-      expect(page).to show_notification('Location created.')
+        expect(page).to have_table_row('Example City, Example Street, 43-300')
+        expect(page).to show_notification('Booking created.')
+      end
+
+      scenario 'can create booking' do
+        create(:company, name: 'Example Company')
+        create(:building_location, city: 'Example City', street: 'Example Street', zip_code: '43-300')
+
+        visit root_path
+
+        click_on 'Bookings'
+        click_on 'Add booking'
+
+        select 'Example Company', from: 'booking[company_id]'
+        select 'Example City, Example Street, 43-300', from: 'booking[building_location_id]'
+
+        click_button 'Create booking'
+
+        expect(page).to have_table_row('Example City, Example Street, 43-300')
+        expect(page).to show_notification('Booking created.')
+      end
     end
   end
 end
