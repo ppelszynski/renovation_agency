@@ -9,3 +9,6 @@
 Company.create(name: 'Selleo')
 Company.create(name: 'PrzemoCo')
 Company.create(name: 'BestRenovations')
+Company.create(name: 'C1')
+Company.create(name: 'REN')
+Company.create(name: 'NewHouse')

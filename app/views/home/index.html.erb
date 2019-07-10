@@ -1,2 +1,29 @@
 
 
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h4>Top 5 Today</h4>
+      <table class = "table">
+        <tr>
+          <th>Name</th>
+        </tr>
+          <% today_companies.each do |company| %>
+        <tr>
+          <td><%= company.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-sm">
+      <h4>Bookings this month:</h4>
+      <h3 class="this_month"><%= this_month_bookings_count %></h3>
+    </div>
+    <div class="col-sm">
+      <h4>Bookings starting next month:</h4>
+      <h3 class="next_month"><%= bookings_starting_next_month %></h3>
+    </div>
+  </div>
+</div>

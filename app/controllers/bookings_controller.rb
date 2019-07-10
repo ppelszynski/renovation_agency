@@ -19,9 +19,11 @@ class BookingsController < ApplicationController
   private
 
   def set_form
-    @form ||= if params[:booking]
+    @form ||= if params[:booking][:date_from] && params[:booking][:date_to]
+                BookingForm.new(Booking.new, params)
+              elsif
                 updated_params = ParseBookingDate.call(params).result
-                BookingForm.new(Booking.new, updated_params)
+                BookingForm.new(Booking.new, new_params)
               else
                 BookingForm.new(Booking.new)
               end

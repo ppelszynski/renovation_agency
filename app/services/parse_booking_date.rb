@@ -12,7 +12,7 @@ class ParseBookingDate < Patterns::Service
                             booking['date_to(2i)'].to_i,
                             booking['date_to(3i)'].to_i)
     updated_params = {}
-    
+
     updated_params[:company_id] = booking[:company_id]
     updated_params[:building_location_id] = booking[:building_location_id]
     updated_params[:date_from] = start
