@@ -6,7 +6,7 @@
         <tr>
           <th>Name</th>
         </tr>
-          <% today_companies.each do |company| %>
+          <% Company.today_booked.each do |company| %>
         <tr>
           <td><%= company.name %></td>
           </tr>
