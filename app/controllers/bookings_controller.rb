@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
       flash[:success] = 'Booking created.'
       redirect_to bookings_path
     else
+      flash[:error] = 'Company is busy in this time.'
       render :new
     end
   end
@@ -19,11 +20,9 @@ class BookingsController < ApplicationController
   private
 
   def set_form
-    @form ||= if params[:booking][:date_from] && params[:booking][:date_to]
-                BookingForm.new(Booking.new, params)
-              elsif
+    @form ||= if params[:booking]
                 updated_params = ParseBookingDate.call(params).result
-                BookingForm.new(Booking.new, new_params)
+                BookingForm.new(Booking.new, updated_params)
               else
                 BookingForm.new(Booking.new)
               end
