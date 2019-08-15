@@ -1,7 +1,5 @@
 class Company < ApplicationRecord
-  has_many :bookings
+  scope :today_booked, TodayBookedCompaniesQuery
 
-  def bookings
-    Booking.where(company_id: id)
-  end
+  has_many :bookings
 end
